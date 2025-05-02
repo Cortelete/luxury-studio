@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Studio de Beleza| Joyci Almeida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --primary: #d4af8f;
+            --secondary: #1a1a1a;
+            --accent: #b08e6b;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f5f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(45deg, var(--primary), #f3e9dc, var(--primary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-effect:hover::before {
+            opacity: 0.3;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,240,230,0.9) 100%);
+        }
+        
+        .service-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,240,230,0.95) 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .input-field {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            background: rgba(255, 255, 255, 1);
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(180, 140, 100, 0.4);
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49.5%, #f9f5f0 50%), 
+                        linear-gradient(to top right, #f9f5f0 49.5%, transparent 50%);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-800" style="font-family: 'Playfair Display', serif;">
+                        <span class="text-amber-800">Luxury</span> Studio de Beleza
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Início</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Sobre Mim</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Serviços</a>
+                        <a href="#testimonials" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Depoimentos</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-amber-800 px-3 py-2 text-sm font-medium">Contato</a>
+                        <a href="#client-area" class="bg-amber-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Área do Cliente</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-amber-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50">Início</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50">Sobre Mim</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50">Serviços</a>
+                <a href="#testimonials" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50">Depoimentos</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-amber-800 hover:bg-gray-50">Contato</a>
+                <a href="#client-area" class="block px-3 py-2 text-base font-medium text-white bg-amber-800 rounded-md hover:bg-amber-700">Área do Cliente</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero pt-32 pb-20 md:pt-40 md:pb-28 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Eleve a sua experiência!</h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">Serviços profissionais de cuidados com a pele, extensão de cílios e design de sobrancelhas, feitos sob medida para realçar a sua beleza natural.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="btn-primary px-8 py-3 rounded-md text-white font-medium">AGENDAR</a>
+                        <a href="#services" class="border border-white px-8 py-3 rounded-md text-white font-medium hover:bg-white hover:bg-opacity-10 transition duration-300">SERVIÇOS</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="luxury-card glow-effect rounded-2xl p-2 max-w-md w-full">
+                        <img src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beauty Treatment" class="rounded-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating social icons -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-6">
+            <a href="https://www.instagram.com/luxury.joycialmeida/" target="_blank" class="text-white hover:text-amber-200 transition duration-300">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="https://www.facebook.com/joy.dealmeida" target="_blank" class="text-white hover:text-amber-200 transition duration-300">
+                <i class="fab fa-facebook text-2xl"></i>
+            </a>
+            <a href="https://wa.me/5542999722042?text=Ol%C3%A1!%20Quero%20saber%20mais!" target="_blank" class="text-white hover:text-amber-200 transition duration-300">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Sobre Joyci Almeida</h2>
+                <div class="w-20 h-1 bg-amber-800 mx-auto"></div>
+            </div>
+            
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-12 md:mb-0 flex justify-center">
+                    <div class="luxury-card glow-effect rounded-full p-2 w-64 h-64 overflow-hidden">
+                        <img src="https://i.imgur.com/aOCOEA7.jpeg" alt="Joyci Almeida" class="w-full h-full object-cover rounded-full">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Sua especialista de confiança da área da beleza! </h3>
+                    <p class="text-gray-600 mb-6">Com mais de 1 ano de experiência na indústria da beleza, Joyci Almeida dedico sua carreira a ajudar clientes a alcançarem seus objetivos estéticos por meio de tratamentos personalizados e cuidados especializados.</p>
+                    <p class="text-gray-600 mb-6">Após concluir sua formação avançada em estética, Joyci se especializou em extensão de cílios e design de sobrancelhas, desenvolvendo técnicas que realçam a beleza natural enquanto mantêm a harmonia facial.</p>
+                    <p class="text-gray-600 mb-8">Na Luxury Studio de Beleza, Joyci combina sua expertise técnica com um atendimento acolhedor e atencioso, criando um ambiente relaxante onde as clientes podem se sentir à vontade enquanto recebem tratamentos de beleza de alto nível.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-amber-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-award text-amber-800 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Certificados Profissionais</span>
+                        </div>
+                        <div class="bg-amber-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-star text-amber-800 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">1+ Ano de Experiência</span>
+                        </div>
+                        <div class="bg-amber-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-heart text-amber-800 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">200+ Clientes Satisfeitos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos Serviços Premium</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experimente tratamentos de beleza luxuosos, desenvolvidos para realçar seus traços naturais e elevar sua autoestima.</p>
+                <div class="w-20 h-1 bg-amber-800 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://plus.unsplash.com/premium_photo-1661501523837-083813c782d2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Extensão de Cílios" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Extensão de Cílios</h3>
+                        <p class="text-gray-600 mb-4">Volume luxuoso, clássico ou híbrido, personalizado de acordo com o formato dos seus olhos e seu estilo de vida.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$120</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Design de Sobrancelhas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Design de Sobrancelhas</h3>
+                        <p class="text-gray-600 mb-4">Serviços de Design e restauração para criar asobrancelha perfeita para você.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$50</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Limpeza de Pele Profissional" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Limpeza de Pele Profissional</h3>
+                        <p class="text-gray-600 mb-4">Limpeza de pele profissional, relaxante ou simples para atender às necessidades específicas da sua pele.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$100</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598300188904-6287d52746ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Botox" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Tratamentos de Botox</h3>
+                        <p class="text-gray-600 mb-4">Injeções de botox profissionais administradas pela nossa especialista parceira certificada.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$1250</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.ctbelezaecia.com.br/wp-content/uploads/2023/02/Conheca-a-Tecnica-Lash-Lifting-1024x682.jpeg" alt="Lash Lift" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Lash Lifting</h3>
+                        <p class="text-gray-600 mb-4">Realce seus cílios naturais com um tratamento de lifting para um olhar mais desperto.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$120</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card glow-effect rounded-xl overflow-hidden">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558929992-16ba4675a70d?q=80&w=1916&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bridal Package" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Pacote de Beleza para Noivas</h3>
+                        <p class="text-gray-600 mb-4">Preparação completa de beleza para noivas, incluindo cílios, sobrancelhas e tratamentos de pele relaxante, um momento luxuoso para seu dia especial.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-800 font-bold">A partir de R$1120</span>
+                            <a href="#contact" class="text-sm font-medium text-amber-800 hover:text-amber-700">AGENDAR →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#contact" class="btn-primary px-8 py-3 rounded-md text-white font-medium inline-block">Ver Lista Completa de Preços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Depoimentos de clientes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Veja o que nossas clientes dizem sobre a experiência na Luxury Studio de Beleza.</p>
+                <div class="w-20 h-1 bg-amber-800 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/a-/ALV-UjXjanv2c3HUlTv1nRwZ01BSCxgpCMBQbopq4HIGo_LDekBMOYGohA=w72-h72-p-rp-mo-ba1-br100" alt="Letícia Lossnitz">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-bold text-gray-800">Letícia Lossnitz</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Além de entregarem técnica e beleza, também dão uma experiência personalizada, me senti muito confortável durante o atendimento e pretendo ser cliente fiel!!! Estúdio nota mil, podem marcar um horário SEM MEDO, vocês não vão se arrepender 🩷🩷"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/a-/ALV-UjX2lXYfTo7S5teGtFm2eiAnopf_9wt77buVPtc0V1BTFgPTT8kb2g=w72-h72-p-rp-mo-ba1-br100" alt="Elenice Rocha">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-bold text-gray-800">Elenice Rocha</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Adorei o resultado da minhas sobrancelhas, profissional excelente e muito atenciosa, atendimento impecável e um ambiente extremamente acolhedor 💕😍 super recomendo 😉"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/a-/ALV-UjUv60A1bf8UXrr2ZgL-RpSLrQzG6TuewYX8-RNzXQkH6v2VaxEe=w72-h72-p-rp-mo-ba1-br100" alt="Arielle Tozetto">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-bold text-gray-800">Arielle Tozetto</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                                <i class="fas fa-star text-amber-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Ótimo atendimento! Localização perfeita, com lugar para estacionar o carro! Muito caprichosa na aplicação, faz orientações necessárias sobre a saúde e cuidados dos cílios!! Fiquei muito satisfeita com o atendimento 🌹👏🏽👏🏽"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">AGENDE AGORA SEU HORÁRIO</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Pronta para vivenciar a beleza com luxo? Entre em contato para agendar sua consulta ou tratamento.</p>
+                <div class="w-20 h-1 bg-amber-800 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-8">
+                    <div class="luxury-card glow-effect rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Informação para Contato</h3>
+                        
+                        <div class="mb-8">
+                            <div class="flex items-start mb-6">
+                                <div class="flex-shrink-0 bg-amber-100 p-3 rounded-full">
+                                    <i class="fas fa-map-marker-alt text-amber-800"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Localização do Studio</h4>
+                                    <p class="text-gray-600">R. Teixeira Mendes, 700 - Uvaranas<br>Ponta Grossa - PR, 84031-000, Brasil</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="flex-shrink-0 bg-amber-100 p-3 rounded-full">
+                                    <i class="fas fa-phone-alt text-amber-800"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">(42) 999.722.042</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-amber-100 p-3 rounded-full">
+                                    <i class="fas fa-envelope text-amber-800"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-800">Instagram</h4>
+                                    <p class="text-gray-600">@luxury.joycialmeida</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800 mb-4">Horário de Funcionamento</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Segunda a Sexta</span>
+                                    <span class="text-gray-800 font-medium">9:00 AM - 9:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Fins de Semana</span>
+                                    <span class="text-gray-800 font-medium">Horários personalizados VIP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="luxury-card glow-effect rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Envie-nos uma mensagem!</h3>
+                        <form>
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
+                                <input type="text" id="name" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Seu endereço de E-mail</label>
+                                <input type="email" id="email" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Seu número de Telefone</label>
+                                <input type="tel" id="phone" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none">
+                            </div>
+                            
+                          <div class="mb-6">
+                              <label for="service" class="block text-gray-700 font-semibold mb-2">
+                                  Serviço de Interesse
+                              </label>
+                              <select 
+                                  id="service" 
+                                  name="service"
+                                  class="w-full px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-pink-300 focus:border-pink-300 transition duration-200"
+                              >
+                                  <option value="">Selecione um serviço</option>
+                                  <option value="eyelash-extensions">Extensão de Cílios</option>
+                                  <option value="eyebrow-design">Design de Sobrancelhas</option>
+                                  <option value="skin-care">Cuidados com a Pele</option>
+                                  <option value="botox">Tratamentos de Botox</option>
+                                  <option value="lash-lift">Lah Lifting</option>
+                                  <option value="bridal">Pacote de Beleza para Noivas</option>
+                                  <option value="other">Outro</option>
+                              </select>
+                          </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem:</label>
+                                <textarea id="message" rows="4" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full py-3 rounded-md text-white font-medium">ENVIAR</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Area Section -->
+    <section id="client-area" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="luxury-card glow-effect rounded-xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Área do Cliente</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Clientes já cadastrados podem fazer login para acessar seu histórico de agendamentos, recompensas de fidelidade e ofertas exclusivas.</p>
+                
+                <div class="max-w-md mx-auto">
+                    <div class="mb-6">
+                        <label for="client-email" class="block text-gray-700 font-medium mb-2 text-left">E-Mail</label>
+                        <input type="email" id="client-email" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="client-password" class="block text-gray-700 font-medium mb-2 text-left">Senha</label>
+                        <input type="password" id="client-password" class="input-field w-full px-4 py-2 rounded-t-md focus:outline-none">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full py-3 rounded-md text-white font-medium mb-4">Entrar</button>
+                    
+                    <div class="text-sm">
+                        <a href="#" class="text-amber-800 hover:text-amber-700">Esqueceu sua senha?</a>
+                        <span class="mx-2 text-gray-400">|</span>
+                        <a href="#" class="text-amber-800 hover:text-amber-700">Novo Cliente?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-2xl font-bold" style="font-family: 'Playfair Display', serif;">
+                        <span class="text-amber-400">Luxury</span> Studio de Beleza
+                    </a>
+                    <p class="mt-4 text-gray-400 max-w-xs">Tratamentos de beleza profissionais para realçar seus traços naturais e aumentar sua confiança.</p>
+                    
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://www.instagram.com/luxury.joycialmeida/" target="_blank" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Serviços</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Extensão de Cílios</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Design de Sobrancelhas</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Cuidados com a Pele</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Tratamentos de Botox</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Studio</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-400 hover:text-white">Sobre</a></li>
+                            <li><a href="#testimonials" class="text-gray-400 hover:text-white">Depoimentos</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Legalidade</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Termos de Serviço</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Política de Cancelamento</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <p class="text-gray-400 text-sm text-center">&copy; 2025 Luxury Studio de Beleza - Joyci Almeida. Todos os Direitos Reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
